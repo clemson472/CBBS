@@ -1,5 +1,20 @@
-import sys
+#!/usr/bin/python
+#
+# This python script converts the old database's single table into
+# two tables usable in the new database.
+#
+# The script expects input from stdin and outputs the data into two
+# files : Mentor.csv and Mentee.csv which represent the Mentor and Mentee
+# tables in the new database.
+#
+# The input must be a .csv file. The easiest way to obtain this file is to
+# use the 'save as' functionality in Excel to resave the old database's data.
+#
+# The Mentor.csv and Mentee.csv files can be loaded into the new database
+# using the phpMyAdmin 'import' facility
+#
 
+import sys
 
 def addToMentorTable(oldarr, mentorfile):
 	newarr = []
@@ -32,7 +47,7 @@ def addToMentorTable(oldarr, mentorfile):
 	mentorfile.write('\n')
 
 
-def addToMenteeTable(linearr, menteefile):
+def addToMenteeTable(oldarr, menteefile):
 	#newarr = [" "] * 
 	newarr = []
 	newarr.append(oldarr[0])   #Email
@@ -58,27 +73,21 @@ def addToMenteeTable(linearr, menteefile):
 	menteefile.write(lineout)
 	menteefile.write('\n')
 
-
 mentorfile = open("Mentor.csv", 'w')
 menteefile = open("Mentee.csv", 'w')
 
 while True:
-
 	line = sys.stdin.readline()
 
 	if not line:
-		break
-
-	#print line
+	    menteefile.close()
+	    mentorfile.close()
+	    break
 
 	linearr = line.split(',')
-	#print linearr #0 indexed
 
 	if linearr[11] == "TRUE":
-		addToMentorTable(linearr, mentorfile)
+	    addToMentorTable(linearr, mentorfile)
 
 	if linearr[12] == "TRUE":
-		addToMenteeTable(linearr, menteefile)
-
-	lineout = ','.join(linearr)
-	print lineout
+	    addToMenteeTable(linearr, menteefile)

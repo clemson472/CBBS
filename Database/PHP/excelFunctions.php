@@ -6,7 +6,6 @@
  * label -- a string which describes an entry
  */
 
-
 /*
  * This function will execute $query on $database and provide
  * an Excel readable entry with label $label.
