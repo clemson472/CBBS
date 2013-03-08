@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Mar 07, 2013 at 11:44 PM
+-- Generation Time: Mar 04, 2013 at 04:31 PM
 -- Server version: 5.5.29
 -- PHP Version: 5.3.10-1ubuntu3.5
 
@@ -418,9 +418,9 @@ INSERT INTO `lime_settings_global` (`stg_name`, `stg_value`) VALUES
 ('siteadminbounce', 'jegrant@clemson.edu'),
 ('defaultlang', 'en'),
 ('updateavailable', '1'),
-('updatebuild', '130226'),
+('updatebuild', '130219'),
 ('updateversion', '2.00+'),
-('updatelastcheck', '2013-03-04 16:53:13');
+('updatelastcheck', '2013-02-25 16:44:04');
 
 -- --------------------------------------------------------
 
@@ -686,7 +686,7 @@ CREATE TABLE IF NOT EXISTS `Mentee` (
   `IsMentor` tinyint(1) NOT NULL,
   `IsMentee` tinyint(1) NOT NULL,
   `IsAdmin` tinyint(1) NOT NULL,
-  `IsInMatchResult` tinyint(1) NOT NULL,
+  `ShowInMatchResult` tinyint(1) NOT NULL,
   `Background` varchar(20) NOT NULL,
   PRIMARY KEY (`Email`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -695,8 +695,9 @@ CREATE TABLE IF NOT EXISTS `Mentee` (
 -- Dumping data for table `Mentee`
 --
 
-INSERT INTO `Mentee` (`Email`, `University`, `GraduationYear`, `Major`, `FirstName`, `MiddleName`, `LastName`, `MobilePhone`, `StreetAddress`, `City`, `State`, `Country`, `ZipCode`, `IsMentor`, `IsMentee`, `IsAdmin`, `IsInMatchResult`, `Background`) VALUES
-('exampleMentee@clemson.edu', ' ', ' ', ' ', 'FirstExample', 'MiddleExample', 'LastExample', '5555555555', ' ', ' ', ' ', ' ', ' ', 0, 1, 0, 1, 'Example Background');
+INSERT INTO `Mentee` (`Email`, `University`, `GraduationYear`, `Major`, `FirstName`, `MiddleName`, `LastName`, `MobilePhone`, `StreetAddress`, `City`, `State`, `Country`, `ZipCode`, `IsMentor`, `IsMentee`, `IsAdmin`, `ShowInMatchResult`, `Background`) VALUES
+('rkadiya@clemson.edu', '', '', '', 'Ravi', 'Teja', 'kadiyam', '9876543210', '220 Elm St', 'Clemson', 'South Carolina', '29631', 'FALSE', 0, 0, 0, 0, 'Engineering'),
+('steve@clemson.edu', '', '', '', 'Dennis', 'Elliott', 'Stevenson', '8646565880', '123 Evergreen Drive', 'Clemson', 'South Carolina', '29631', 'TRUE', 0, 0, 0, 0, 'Art');
 
 -- --------------------------------------------------------
 
@@ -739,7 +740,7 @@ CREATE TABLE IF NOT EXISTS `Mentor` (
   `YearsInCompany` int(10) NOT NULL,
   `CompanyName` varchar(40) NOT NULL,
   `Position` varchar(40) NOT NULL,
-  `IsInMatchResult` tinyint(1) NOT NULL,
+  `ShowInMatchResult` tinyint(1) NOT NULL,
   `Title` varchar(40) NOT NULL,
   `Background` varchar(20) NOT NULL,
   PRIMARY KEY (`Email`)
@@ -749,8 +750,9 @@ CREATE TABLE IF NOT EXISTS `Mentor` (
 -- Dumping data for table `Mentor`
 --
 
-INSERT INTO `Mentor` (`Email`, `FirstName`, `MiddleName`, `LastName`, `WorkPhone`, `WorkTelephoneExtention`, `MobilePhone`, `StreetAddress`, `City`, `State`, `Country`, `ZipCode`, `IsMentor`, `IsMentee`, `IsAdmin`, `IsSponsor`, `YearsInCurrentPosition`, `YearsInCompany`, `CompanyName`, `Position`, `IsInMatchResult`, `Title`, `Background`) VALUES
-('steve@clemson.edu', 'Dennis', 'Elliott', 'Stevenson', '8646565880', '', '8646565880', ' ', ' ', ' ', ' ', ' ', 1, 0, 0, 0, 30, 32, ' ', ' ', 1, 'Associate Professor', 'Art');
+INSERT INTO `Mentor` (`Email`, `FirstName`, `MiddleName`, `LastName`, `WorkPhone`, `WorkTelephoneExtention`, `MobilePhone`, `StreetAddress`, `City`, `State`, `Country`, `ZipCode`, `IsMentor`, `IsMentee`, `IsAdmin`, `IsSponsor`, `YearsInCurrentPosition`, `YearsInCompany`, `CompanyName`, `Position`, `ShowInMatchResult`, `Title`, `Background`) VALUES
+('rkadiya@clemson.edu', 'Ravi', 'Teja', 'kadiyam', '8646567897', '5677', '9876543210', '220 Elm St', 'Clemson', 'South Carolina', '29631', 'FALSE', 1, 0, 0, 0, 0, 0, '', '', 0, '', 'Engineering'),
+('steve@clemson.edu', 'Dennis', 'Elliott', 'Stevenson', '8646565880', '4322', '8646565880', '123 Evergreen Drive', 'Clemson', 'South Carolina', '29631', 'TRUE', 1, 0, 0, 0, 30, 32, '', '', 0, 'Associate Professor', 'Art');
 
 -- --------------------------------------------------------
 
@@ -1670,7 +1672,7 @@ INSERT INTO `phpbb_config` (`config_name`, `config_value`, `is_dynamic`) VALUES
 ('bump_interval', '10', 0),
 ('bump_type', 'd', 0),
 ('cache_gc', '7200', 0),
-('cache_last_gc', '1362604170', 1),
+('cache_last_gc', '1362430294', 1),
 ('captcha_gd', '1', 0),
 ('captcha_gd_3d_noise', '1', 0),
 ('captcha_gd_fonts', '1', 0),
@@ -1833,8 +1835,8 @@ INSERT INTO `phpbb_config` (`config_name`, `config_value`, `is_dynamic`) VALUES
 ('print_pm', '1', 0),
 ('questionnaire_unique_id', '069ffb819c0ff99f', 0),
 ('queue_interval', '60', 0),
-('rand_seed', '72e4049e66d684885f2abaa189fc7807', 1),
-('rand_seed_last_update', '1362604165', 1),
+('rand_seed', '49353068b77edd3d1c266ad4816d6968', 1),
+('rand_seed_last_update', '1362431768', 1),
 ('ranks_path', 'images/ranks', 0),
 ('record_online_date', '0', 1),
 ('record_online_users', '0', 1),
@@ -3074,7 +3076,7 @@ INSERT INTO `phpbb_sessions` (`session_id`, `session_user_id`, `session_forum_id
 ('1f78491472d108eb3b2d6861c5117976', 2, 0, 1361828536, 1361828535, 1361828559, '198.21.198.204', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.22 (KHTML, like Gecko) Chrome/25.0.1364.97 Safari/537.22', '', 'adm/index.php?i=1', 1, 0, 1),
 ('bf3698783b9d5b3c16618bae4d4cbc93', 1, 0, 1361828535, 1361828535, 1361828535, '198.21.198.204', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.22 (KHTML, like Gecko) Chrome/25.0.1364.97 Safari/537.22', '', 'install/index.php?mode=install&sub=final', 1, 0, 0),
 ('dc139cb5ed48f7b00bd14579e7b8c004', 1, 0, 1362431768, 1362431768, 1362431768, '198.21.198.31', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.22 (KHTML, like Gecko) Chrome/25.0.1364.97 Safari/537.22', '', 'ucp.php?mode=logout', 1, 0, 0),
-('e555796055981ba8f5d3756fd8c9e5fa', 1, 0, 1362604164, 1362604164, 1362604170, '198.21.192.59', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.22 (KHTML, like Gecko) Chrome/25.0.1364.97 Safari/537.22', '', 'ucp.php?mode=login', 1, 0, 0);
+('f0a03e106a5cc0664bb6d0b75a7c1b6d', 1, 0, 1362431768, 1362431768, 1362431771, '198.21.198.31', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.22 (KHTML, like Gecko) Chrome/25.0.1364.97 Safari/537.22', '', 'index.php', 1, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -3594,7 +3596,7 @@ CREATE TABLE IF NOT EXISTS `phpbb_users` (
 --
 
 INSERT INTO `phpbb_users` (`user_id`, `user_type`, `group_id`, `user_permissions`, `user_perm_from`, `user_ip`, `user_regdate`, `username`, `username_clean`, `user_password`, `user_passchg`, `user_pass_convert`, `user_email`, `user_email_hash`, `user_birthday`, `user_lastvisit`, `user_lastmark`, `user_lastpost_time`, `user_lastpage`, `user_last_confirm_key`, `user_last_search`, `user_warnings`, `user_last_warning`, `user_login_attempts`, `user_inactive_reason`, `user_inactive_time`, `user_posts`, `user_lang`, `user_timezone`, `user_dst`, `user_dateformat`, `user_style`, `user_rank`, `user_colour`, `user_new_privmsg`, `user_unread_privmsg`, `user_last_privmsg`, `user_message_rules`, `user_full_folder`, `user_emailtime`, `user_topic_show_days`, `user_topic_sortby_type`, `user_topic_sortby_dir`, `user_post_show_days`, `user_post_sortby_type`, `user_post_sortby_dir`, `user_notify`, `user_notify_pm`, `user_notify_type`, `user_allow_pm`, `user_allow_viewonline`, `user_allow_viewemail`, `user_allow_massemail`, `user_options`, `user_avatar`, `user_avatar_type`, `user_avatar_width`, `user_avatar_height`, `user_sig`, `user_sig_bbcode_uid`, `user_sig_bbcode_bitfield`, `user_from`, `user_icq`, `user_aim`, `user_yim`, `user_msnm`, `user_jabber`, `user_website`, `user_occ`, `user_interests`, `user_actkey`, `user_newpasswd`, `user_form_salt`, `user_new`, `user_reminded`, `user_reminded_time`) VALUES
-(1, 2, 1, '00000000003khra3nk\ni1cjyo000000\ni1cjyo000000', 0, '', 1361828527, 'Anonymous', 'anonymous', '', 0, 0, '', 0, '', 0, 0, 0, '', '', 0, 0, 0, 0, 0, 0, 0, 'en', 0.00, 0, 'd M Y H:i', 1, 0, '', 0, 0, 0, 0, -3, 0, 0, 't', 'd', 0, 't', 'a', 0, 1, 0, 1, 1, 1, 0, 230271, '', 0, 0, 0, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '000e90f12e67f018', 1, 0, 0),
+(1, 2, 1, '00000000003khra3nk\ni1cjyo000000\ni1cjyo000000', 0, '', 1361828527, 'Anonymous', 'anonymous', '', 0, 0, '', 0, '', 0, 0, 0, '', '', 0, 0, 0, 0, 0, 0, 0, 'en', 0.00, 0, 'd M Y H:i', 1, 0, '', 0, 0, 0, 0, -3, 0, 0, 't', 'd', 0, 't', 'a', 0, 1, 0, 1, 1, 1, 0, 230271, '', 0, 0, 0, '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'acb015d9dbe66d13', 1, 0, 0),
 (2, 3, 5, 'zik0zjzik0zjzik0xs\ni1cjyo000000\nzik0zjzhb2tc', 0, '198.21.198.204', 1361828527, 'cpsc472', 'cpsc472', '$H$91bO4RmJwBrIs0c6qGgCbXihTYe.7l1', 0, 0, 'jegrant@clemson.edu', 108033444219, '', 1362430398, 0, 0, '', '', 0, 0, 0, 0, 0, 0, 1, 'en', 0.00, 0, 'D M d, Y g:i a', 1, 1, 'AA0000', 0, 0, 0, 0, -3, 0, 0, 't', 'd', 0, 't', 'a', 0, 1, 0, 1, 1, 1, 1, 230271, '', 0, 0, 0, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '2324988c93347ace', 1, 0, 0),
 (3, 2, 6, '', 0, '', 1361828535, 'AdsBot [Google]', 'adsbot [google]', '', 1361828535, 0, '', 0, '', 0, 1361828535, 0, '', '', 0, 0, 0, 0, 0, 0, 0, 'en', 0.00, 0, 'D M d, Y g:i a', 1, 0, '9E8DA7', 0, 0, 0, 0, -3, 0, 0, 't', 'd', 0, 't', 'a', 0, 1, 0, 1, 1, 1, 0, 230271, '', 0, 0, 0, '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'a427ecdb83f211a8', 0, 0, 0),
 (4, 2, 6, '', 0, '', 1361828535, 'Alexa [Bot]', 'alexa [bot]', '', 1361828535, 0, '', 0, '', 0, 1361828535, 0, '', '', 0, 0, 0, 0, 0, 0, 0, 'en', 0.00, 0, 'D M d, Y g:i a', 1, 0, '9E8DA7', 0, 0, 0, 0, -3, 0, 0, 't', 'd', 0, 't', 'a', 0, 1, 0, 1, 1, 1, 0, 230271, '', 0, 0, 0, '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'a3dc5815e357a2a0', 0, 0, 0),
