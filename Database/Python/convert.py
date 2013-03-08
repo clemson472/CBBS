@@ -30,15 +30,28 @@ def addToMentorTable(oldarr, mentorfile):
 	newarr.append(" ")         #State
 	newarr.append(" ")         #Country
 	newarr.append(" ")         #Zip
-	newarr.append(oldarr[11])  #IsMentor
-	newarr.append(oldarr[12])  #IsMentee
-	newarr.append("FALSE")     #IsAdmin
-	newarr.append(oldarr[14])  #IsSponsor
+	newarr.append("1")         #IsMentor
+
+	if oldarr[12] == "TRUE":
+		newarr.append("1") #IsMentee
+	else:
+	    	newarr.append("0") #IsMentee
+
+	newarr.append("0")         #IsAdmin
+	if oldarr[14] == "TRUE":
+		newarr.append("1") #IsSponsor
+	else:
+	    	newarr.append("0") #IsSponsor
 	newarr.append(oldarr[15])  #Years In Current Position
 	newarr.append(oldarr[16])  #Years In Company
 	newarr.append(" ")         #Company Name
 	newarr.append(" ")         #Position
-	newarr.append(oldarr[17])  #ShowInMatchResult
+	
+	if oldarr[17] == "TRUE":
+		newarr.append("1") #ShowInMatchResult
+	else:
+	    	newarr.append("0") #ShowInMatchResult
+
 	newarr.append(oldarr[18])  #Title
 	newarr.append(oldarr[20])  #Background
 
@@ -63,10 +76,19 @@ def addToMenteeTable(oldarr, menteefile):
 	newarr.append(" ")         #State
 	newarr.append(" ")         #Country
 	newarr.append(" ")         #Zip
-	newarr.append(oldarr[11])  #IsMentor
-	newarr.append(oldarr[12])  #IsMentee
-	newarr.append("FALSE")     #IsAdmin
-	newarr.append(oldarr[17])  #ShowInMatchResult
+	
+	if oldarr[11] == "TRUE":
+		newarr.append("1") #IsMentor
+	else:
+	    	newarr.append("0") #IsMentor
+	
+	newarr.append("1")         #IsMentee
+	newarr.append("0")         #IsAdmin
+	
+	if oldarr[17] == "TRUE":
+		newarr.append("1") #ShowInMatchResult
+	else:
+	    	newarr.append("0") #ShowInMatchResult
 	newarr.append(oldarr[20])  #Background
 
 	lineout = ','.join(newarr)
