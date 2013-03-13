@@ -24,6 +24,10 @@ else{
 echo "CONNECTED TO MYSQL";
 }
 
+$queryresult = mysqli_query($connection, "SELECT * FROM Mentor");
+
+echo mysqli_fetch_array($queryresult);
+
 mysqli_close($connection);
 ?>
 
