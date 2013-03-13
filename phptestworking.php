@@ -7,7 +7,7 @@
   <?php echo $body ?>
 
 
-<? php
+<?php
 echo "TIME TO WORK";
 echo "PLEASSEEEE";
 ?>
