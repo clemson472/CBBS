@@ -8,7 +8,11 @@
 			$(document).ready(function() {
 				$(function(){
 					$("#to").autoSuggest("addresses.php",
-						{minChars: 2, searchObjProps: "name", asHtmlID: "recipient"});
+						{minChars: 2, searchObjProps: "name", asHtmlID: "to"});
+					$("#cc").autoSuggest("addresses1.php",
+						{minChars: 2, searchObjProps: "name", asHtmlID: "cc"});
+					$("#bcc").autoSuggest("addresses2.php",
+						{minChars: 2, searchObjProps: "name", asHtmlID: "bcc"});
 				});
 			});
 		</script>
