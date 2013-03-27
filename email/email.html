@@ -1,0 +1,34 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="stylesheets/autoSuggest.css">
+		<script type="text/javascript" src="javascripts/jquery-1.9.1.min.js"></script>
+		<script type="text/javascript" src="javascripts/jquery.autoSuggest.minified.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function() {
+				$(function(){
+					$("#to").autoSuggest("addresses.php",
+						{minChars: 2, searchObjProps: "name", asHtmlID: "recipient"});
+				});
+			});
+		</script>
+		<script src="javascripts/tinymce/jscripts/tiny_mce/tiny_mce.js"></script>
+		<script type="text/javascript">
+			tinyMCE.init({
+				mode : "exact",
+				elements : "content"
+			});
+		</script>
+	</head>
+	<body>
+		<form method="post" action="send.php">
+			To:  <input type='text' name='to' id='to' class='addresses'></input><br />
+			CC:  <input type='text' name='cc' id='cc' class='addresses'></input><br />
+			BCC:  <input type='text' name='bcc' id='bcc' class='addresses'></input><br />
+			Title: <input type='text' name='title'><br />
+			Content: <br />
+			<textarea name='content' id='content' rows='20'></textarea><br />
+			<input type='submit' value="Send">
+		</form>
+	</body>
+</html>
