@@ -5,7 +5,7 @@ Success!
 mysql_close($mysqlconnection);
 
 $username = "cpsc472";
-$pwd = "myDB4dmin";
+$pwd = "myDB4dminz";
 $dbname = "cpsc472";
 $host = "oss-ci.cs.clemson.edu";
 
