@@ -7,9 +7,6 @@
 	<div class="banner2">
 	</div>
 	<?php include("index.html"); ?>
-	This is a test. Content area.
-	<br><br><br><br><br><br><br><br><br><br><br>
-	<br><br><br><br><br><br><br><br><br><br><br>
-	<br><br><br><br><br><br><br><br><br><br><br>
+	This is a test. Content area.<?php include("test2.php");?>
 </body>
 </html>
