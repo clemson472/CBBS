@@ -18,6 +18,9 @@ else{
 echo "it actually worked";
 }
 
+
+
+
 mysql_close($mysqlconnection);
 
 ?>
