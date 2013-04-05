@@ -7,7 +7,7 @@
 <?php include("../resources/templates/banner.php"); ?>
 <?php include("../resources/templates/navbar_admin.html"); ?>
 
-"invite mentee"
+"content goes here"
 
 </body>
 
