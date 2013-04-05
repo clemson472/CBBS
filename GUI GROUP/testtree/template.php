@@ -1,11 +1,11 @@
 <html>
-<link rel="stylesheet media="screen" href="style.css" type"text/css"/>
+<link rel="stylesheet media="screen" href="resources/style.css" type"text/css"/>
 
 
 <body>
 
-<?php include("banner.php"); ?>
-<?php include("navbar.php"); ?>
+<?php include("resources/templates/banner.php"); ?>
+<?php include("resources/templates/navbar_admin.php"); ?>
 
 "content goes here"
 
