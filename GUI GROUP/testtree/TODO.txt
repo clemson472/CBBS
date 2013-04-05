@@ -1,0 +1,6 @@
+-finalize this version of navbar
+-remove unnecessary files in \resources
+-combine rules in stylesheets for banner and navbar into one file
+-create working template that includes style.css, banner.php, navbar.html from \resources
+-populate content files with what is done thusfar, keep track of progress for each page (in .txt file for each page?)
+-
