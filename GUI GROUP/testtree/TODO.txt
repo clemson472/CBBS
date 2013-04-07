@@ -13,6 +13,9 @@
 			<img src="stickman.gif" width="24" height="39" alt="Stickman">
 			<a href="http://www.w3schools.com">W3Schools</a>
 		</body>
+**navbar linkeage works as of 4/6/2013 
+     clicking on a link will open a new tab though, dont know if that is code issue or what
+
 
 -finalize this version of navbar
 -remove unnecessary files in /resources (put fancybox, js, slider into "/scripts/" folder)

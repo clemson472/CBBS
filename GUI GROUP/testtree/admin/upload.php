@@ -7,7 +7,7 @@
 <?php include("../resources/templates/banner.php"); ?>
 <?php include("../resources/templates/navbar_admin.html"); ?>
 
-"upload"
+"content goes here"
 
 </body>
 
