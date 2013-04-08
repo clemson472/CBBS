@@ -6,7 +6,7 @@
 
 <?php include("../resources/templates/banner.php"); ?>
 <?php include("../resources/templates/navbar_admin.html"); ?>
-<?php include("../resources/templates/email.html:); ?>
+<?php include("../resources/templates/email.html"); ?>
 
 </body>
 
