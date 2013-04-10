@@ -45,6 +45,7 @@ if(isset($_POST['upload'])) {
 
 	include 'connect.php';
 	
+// change username to be based on login credentials
 	$TARGET_PATH = "docs/".$name;
 	$USER_NAME = "cyrus";
 	
