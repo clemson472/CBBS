@@ -8,6 +8,12 @@
 <?php include("../resources/templates/navbar_admin.html"); ?>
 
 "content goes here"
+<form action="../resources/scripts/php/docUpload.php" method="post" enctype="multipart/form-data" name="docuploadform">
+        <input type="hidden" name="MAX_FILE_SIZE" value="15000000">
+        <input name="doc" type="file" id="doc" size="50">
+	<input name="upload" type="submit" id="upload" value="Upload Document!">
+</form>
+
 
 </body>
 
