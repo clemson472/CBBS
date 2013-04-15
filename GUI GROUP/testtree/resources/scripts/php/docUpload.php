@@ -43,7 +43,6 @@ if(isset($_POST['upload'])) {
 	
 	echo "<br>contents extracted!<br>";
 
-	//include 'connect.php';
 // Values to be set based on actual server credentials
 	$server = "oss-ci.cs.clemson.edu";
 	$username = "cpsc472";
