@@ -43,7 +43,7 @@ if(isset($_POST['upload'])) {
 	
 	echo "<br>contents extracted!<br>";
 
-	include __DIR__.'../connect.php';
+	include __DIR__.'/connect.php';
 	
 // change username to be based on login credentials
 	$TARGET_PATH = "docs/".$name;
