@@ -1,5 +1,11 @@
 <?php
 
+//added to redirect errors to log file (hopefully)
+ini_set('error.log', '/tmp/script_errors.log');
+ini_set('log_errors', 'On');
+ini_set('display_errors', 'Off');
+
+
 echo "Attempting to upload picture! <br>";
 // if something was posted, start the process...
 if(isset($_POST['upload'])) {
@@ -42,7 +48,6 @@ if(isset($_POST['upload'])) {
 	fclose($extract);
 	
 	echo "<br>contents extracted!<br>";
-
 // Values to be set based on actual server credentials
 	$server = "oss-ci.cs.clemson.edu";
 	$username = "cpsc472";
