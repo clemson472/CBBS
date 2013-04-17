@@ -2,13 +2,16 @@
 
 <html>
 <head>
+
+	<base href="http://oss-ci.cs.clemson.edu:8080/GUI%20GROUP/testtree/">
+
     <!-- META -->
 	<meta charset="utf-8" />
     <title>Navigation Menu</title>
 	<!-- /META -->
     
     <!-- CSS -->
-	<link rel="stylesheet" href="css/style.css" />
+	<link rel="stylesheet" href="resources/css/style.css" />
 	<!-- /CSS -->
     
     <!-- SCRIPTS + JQUERY -->
@@ -17,13 +20,13 @@
 	<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 	<![endif]-->
 	
-    <script src="js/jquery-1.7.1.min.js"></script>
-    <script src="js/jquery.easing.1.3.js"></script>
-	<script src="slider/nivo/jquery.nivo.slider.pack.js"></script>
-	<script src="fancybox/jquery.fancybox-1.3.4.pack.js"></script>
-	<script src="js/jquery.jtweetsanywhere-1.2.1.min.js"></script>
-	<script src="js/login.js"></script>
-    <script src="js/default.js"></script>
+    <script src="resources/scripts/js/jquery-1.7.1.min.js"></script>
+    <script src="resources/scripts/js/jquery.easing.1.3.js"></script>
+	<script src="resources/scripts/slider/nivo/jquery.nivo.slider.pack.js"></script>
+	<script src="resources/scripts/fancybox/jquery.fancybox-1.3.4.pack.js"></script>
+	<script src="resources/scripts/js/jquery.jtweetsanywhere-1.2.1.min.js"></script>
+	<script src="resources/scripts/js/login.js"></script>
+    <script src="resources/scripts/js/default.js"></script>
 	<!-- /SCRIPTS + JQUERY -->
 </head>
 
@@ -36,33 +39,25 @@
             <div class="wrap">
                 <nav>
                     <ul id="top_nav">
-                        <li><a href="index.html" class="active">SPREADSHEET</a></li>
-                        <li><a href="#">SEND EMAIL</a>
-                        </li>
-                        <li><a href="#">FORCE MATCH</a>
-                        </li>
-                        <li><a href="#">IMPORT/EXPORT</a>
-						</li>
-						<li><a href="#">UPLOAD</a>
-						</li>
-						<li><a href="#">SURVEYS</a>
-						</li>
-						<li><a href="#">INVITE</a>
-							<ul><!-- begin 1st level -->
-							    <li><a href="#">MENTOR</a></li>
-							    <li><a href="#">MENTEE</a></li>
-							</ul><!-- end 1st level -->
-						</li>
-						
+                        <li><a href="admin/spreadsheet.php" class="active">Spreadsheet</a></li>
+                        <li><a href="admin/sendemail.php">Send Email</a></li>
+			<li><a href="admin/forcematch.php">Force Match</a></li>
+			<li><a href="admin/importexport.php">Import/Export</a></li>
+			<li><a href="admin/upload.php">Upload</a></li>
+			<li><a href="admin/surveys.php">Surveys</a></li>
+                        <li><a href="#">Invite</a>
+                            <ul>
+            			    <li><a href="admin/invitementor.php">Mentor</a></li>
+				    <li><a href="admin/invitementee.php">Mentee</a></li>
+                            </ul>
                     </ul>
-                    
-<!--                    <form id="search" action="#">
+                    <form id="search" action="#">
                         <fieldset>
                             <input type="text" name="search" />
                             <input type="submit" value="" />
                         </fieldset>
                     </form>
--->                    
+                    
                     <div id="container">
                         <!-- Login Starts Here -->
                         <div id="loginContainer">
