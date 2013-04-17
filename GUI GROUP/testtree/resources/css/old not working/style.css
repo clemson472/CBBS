@@ -1,0 +1,318 @@
+ul, li {
+    margin:0;
+    padding:0;
+    border:0;
+    outline:0;
+    font-size:100%;
+    vertical-align:baseline;
+    background:transparent;
+}
+
+body {
+    line-height: 20 px;
+}
+
+nav ul {
+    list-style:none;
+}
+
+
+/*==================================================
+    2. GENERIC STYLES
+==================================================*/
+
+.wrap {
+    margin:0px auto;
+    width:1260px;
+}
+
+/*==================================================
+    3. HEADER STYLES
+==================================================*/
+
+/*	3.0 Top Header
+--------------------------------------------------*/
+
+header {
+	padding-bottom:0px;
+	margin-bottom:0px;
+}
+/*
+#top_header {
+	padding:20px 0px;
+	background-color:#2f2d2d;
+	background-image:url("../images/bg_top_header.png");
+	border-bottom:1px solid rgba(0,0,0,.4);
+	overflow:hidden;
+}
+
+/*	3.1 Bottom Header
+--------------------------------------------------*/
+
+#bottom_header {
+	height:46px;
+	background: url(../images/cajjahae.png) repeat-x;
+	padding: 0 px;
+}
+
+/*	3.1.0 Top navigation
+----------------------------------------*/
+
+nav ul#top_nav {
+	margin:0px;
+	position:relative;
+	z-index:1000;
+}
+
+nav ul#top_nav li {
+	float:left;
+	position:relative;
+	border-right-style: none;
+	border-right-width: 2px;
+	border-image: url('../images/divider.png') 5 3 5 3 repeat stretch;
+}
+
+
+nav ul#top_nav li:first-child {
+	border-left-style: none;
+	border-left-width: 2px;
+	border-image: url('../images/divider.png') 5 3 5 3 repeat stretch;
+}
+
+
+nav ul#top_nav li:first-child a {
+	padding-left:15px;
+}
+
+nav ul#top_nav li a {
+	display:block;
+	color:#9563A3;
+	text-decoration:none;
+	text-transform:uppercase;
+	font: bold 14px 'CabinSemiBold', helvetica, arial, sans-serif;
+	padding: 15px;
+	height: 16px;
+	width: 120px;
+	text-align: center;
+}
+
+
+nav ul#top_nav li:hover a,
+nav ul#top_nav li a:focus,
+nav ul#top_nav li a.active {
+	color: #ffffff;
+	background: #784493;
+}
+
+
+/*	3.1.1 First level navigation
+----------------------------------------*/
+
+#top_nav li ul {
+	display:none;
+	position:absolute;
+	top:46px;
+	width:150px;
+	background-color:#784493;
+	border-bottom-left-radius:4px;
+	border-bottom-right-radius:4px;
+}
+
+#top_nav li ul li {
+	width:141px;
+	line-height: 19px;
+	padding: 3px;
+	border: none;
+}
+
+#top_nav li ul li:last-child {
+	border-bottom:none;
+	border: none;
+}
+
+#top_nav li ul li a {
+	display:block;
+	color: #ffffff;
+	font-size: 12px;
+	font-weight: normal;
+	text-transform:none;
+	text-shadow:none;
+	border-radius:3px;
+	text-align: center;
+	padding: 6px 12px;
+}
+
+#top_nav li ul li:first-child {
+	border: none;
+}
+
+#top_nav li ul li:first-child a {
+	padding-left:12px;
+}
+
+
+#top_nav li ul li a:hover {
+	background:#FFFFFF;
+	color:#784493;;
+}
+
+/*	3.1.2 Lower level navigation
+----------------------------------------*/
+
+#top_nav li ul li ul.lower_level {
+	display:none;
+	position:absolute;
+	left:101px;
+	top:6px;
+	border:none;
+	border-top-left-radius:4px;
+	border-top-right-radius:4px;
+	z-index:1;
+}
+
+
+
+/*	LOGIN form
+----------------------------------------*/
+
+#loginContainer {
+	color: #aaaaaa;
+	font: 12px 'CabinSemiBold', helvetica, arial, sans-serif;
+}
+
+/* Login Button */
+#loginButton { 
+    display: inline-block;
+    float: right; 
+    top: 15px;
+    position: relative;
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+    position: relative;
+    cursor: pointer;
+}
+
+/* Login Button Text */
+#loginButton span {
+    color: #D854A0; 
+    font-size: 14px; 
+    font-weight: bold; 
+/*    text-shadow: 1px 1px #fff; 
+*/
+	padding: 15px 25px;
+
+	text-shadow: 0 1px 2px black;
+}
+
+/* Login Box */
+#loginBox {
+	float: right;
+	position: relative;
+	display: none;
+}
+
+/* If the Login Button has been clicked */    
+#loginButton.active {
+    border-radius: 3px 3px 0 0;
+}
+
+#loginButton.active span {
+    background-position: 53px -76px;
+}
+
+
+/* Login Form */
+#loginForm {
+    width: 248px; 
+    border: 1px solid #784493;
+    border-radius: 0px 0 3px 3px;
+    -moz-border-radius: 0px 0 3px 3px;
+    margin-top: 0px;
+    background: #784493;
+    padding: 6px;
+}
+
+#loginForm fieldset {
+    margin: 0 0 12px 0;
+    display: block;
+    border: 0;
+    padding: 0;
+}
+
+fieldset#body {
+    background: #ffffff;
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+    padding: 10px 13px;
+    margin: 0;
+}
+
+#loginForm #checkbox {
+    width: auto;
+    margin: 1px 9px 0 0;
+    float: left;
+    padding: 0;
+    border: 0;
+    *margin: -3px 9px 0 0; /* IE7 Fix */
+}
+
+#body label {
+    color: #aaaaaa;
+    margin: 9px 0 0 0;
+    display: block;
+    float: left;
+}
+
+#loginForm #body fieldset label {
+    display: block;
+    float: none;
+    margin: 0 0 6px 0;
+}
+
+/* Default Input */
+#loginForm input {
+    width: 92%;
+    border: 1px solid #784493;
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+    color: #aaaaaa;
+    font-weight: bold;
+    padding: 8px 8px;
+    box-shadow: inset 0px 1px 3px #bbb;
+    -webkit-box-shadow: inset 0px 1px 3px #bbb;
+    -moz-box-shadow: inset 0px 1px 3px #bbb;
+    font-size: 12px;
+}
+
+/* Sign In Button */
+#loginForm #login {
+    width: auto;
+    float: left;
+    color: #ffffff;
+    padding: 7px 10px 8px 10px;
+    text-shadow: 0 1px 2px black;
+    border: 1px solid #784493;
+    background-color: #784493;
+    box-shadow: none;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    margin: 0 12px 0 0;
+    cursor: pointer;
+    *padding: 7px 2px 8px 2px; /* IE7 Fix */
+}
+
+/* Forgot your password */
+#loginForm span {
+    text-align: center;
+    display: block;
+    padding: 7px 0 4px 0;
+}
+
+#loginForm span a {
+    color: #ffffff;
+    font-size: 12px;
+}
+
+input: focus {
+    outline: none;
+}
