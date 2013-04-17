@@ -1,0 +1,24 @@
+.myTable {
+	margin-left: auto;
+    margin-right: auto;
+	text-align: left;
+	padding:5px;
+}
+
+.myTable tr:nth-child(odd) {
+    background-color: #EDEDED;
+}
+
+.myTable tr:nth-child(1) {
+    background-color: #DDDDDD;
+	color:#00ff00;
+}
+
+.myTable table{
+	border-collapse:collapse;
+}
+.myTable table td, .myTable table th { 
+	border:1px solid #5D5D5D;
+	padding:1px;
+	color:#555555;
+}
