@@ -1,14 +1,6 @@
 <html>
-<link rel="stylesheet media="screen" href="../resources/style.css" type"text/css"/>
-
-<link rel="stylesheet" media="screen" href="../resources/myTableStyle.css" type="text/css">
-
+<link rel="stylesheet" media="screen" href="myTableStyle.css" type="text/css">
 <body>
-
-<?php include("../resources/templates/banner.php"); ?>
-<?php include("../resources/templates/navbar_admin.html"); ?>
-
-"spreadsheet"
 <?php
 echo "<div class=\"myTable\">";
 $i=0;
@@ -350,7 +342,6 @@ mysql_free_result($result);
 mysql_close($link);
 echo "</div>";
 ?>
-
 </body>
-
 </html>
+
