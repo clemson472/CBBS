@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="resources/css/autoSuggest.css">
+		<script type="text/javascript" src="resources/scripts/javascripts/jquery-1.9.1.min.js"></script>
+		<script type="text/javascript" src="resources/scripts/javascripts/jquery.autoSuggest.minified.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function() {
+				$(function(){
+					$("#to").autoSuggest("resources/scripts/php/addresses.php",
+						{minChars: 2, searchObjProps: "name", asHtmlID: "to"});
+					$("#cc").autoSuggest("resources/scripts/php/templates/addresses1.php",
+						{minChars: 2, searchObjProps: "name", asHtmlID: "cc"});
+					$("#bcc").autoSuggest("resources/scripts/php/templates/addresses2.php",
+						{minChars: 2, searchObjProps: "name", asHtmlID: "bcc"});
+				});
+			});
+		</script>
+		<script src="resources/scripts/javascripts/tinymce/jscripts/tiny_mce/tiny_mce.js"></script>
+		<script type="text/javascript">
+			tinyMCE.init({
+				mode : "exact",
+				elements : "content"
+			});
+		</script>
+	</head>
+	<body>
+		<form method="post" action="send.php">
+			To:  <input type='text' name='to' id='to' class='addresses'></input><br />
+			CC:  <input type='text' name='cc' id='cc' class='addresses'></input><br />
+			BCC:  <input type='text' name='bcc' id='bcc' class='addresses'></input><br />
+			Title: <input type='text' name='title'><br />
+			Content: <br />
+			<textarea name='content' id='content' rows='20'></textarea><br />
+			<input type='submit' value="Send">
+		</form>
+	</body>
+</html>

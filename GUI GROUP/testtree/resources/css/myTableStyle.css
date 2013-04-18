@@ -1,0 +1,43 @@
+body{
+        background-color: #FFFFFF;
+}
+
+.myTable tr:nth-child(odd) {
+    background-color: #EDEDED;
+}
+
+.myTable table{
+	border-collapse: collapse;
+	empty-cells: show;
+	height: 50px;
+}
+
+.myTable table td, .myTable table th { 
+        border: 1px solid #5D5D5D;
+        padding: 5px; 
+}
+
+.myTable .columnHeaders INPUT{
+	background: none;
+	border: 0;
+	color: #000000;
+}
+
+.myTable .columnHeaders INPUT:hover{
+    	text-decoration: underline;
+	cursor: hand; 
+	cursor: pointer;
+}
+
+.myTable INPUT[type="submit"]:hover{
+	height: 25px;
+	width: 30px;
+	cursor: hand; 
+	cursor: pointer;
+}
+
+
+.myTable button:hover{
+	cursor: hand; 
+	cursor: pointer;
+}
