@@ -22,8 +22,318 @@
 	or to consult you before working on the task that
 	you have already been working on.
 ###############################################################
-(1.0)
-	We need to change convert.py to print out the names
+
+(1.1)
+	ImportDatabase/importDatabaseFunction.php : importDatabase($database, $file) 
+	-- Changes the data in the database to match the data in $file
+	   $file is assumed to have the following format
+
+	This is the format:
+	"TableName"
+	"Column1", "Column2",...
+	"Data1","Data2",...
+	"Data1","Data2",...
+
+	"TableName2"
+	...
+
+	Here is the pseudocode for importDatabase($database, $file)
+	  {    
+		while(!file.eof()) //Can't remember off the top of my head
+                {                  //what the actual way to check for EOF is
+			tablename = readTableName();
+			columns = readColumns();
+			data = readData();
+			updateDatabase(database, tablename,columns,data);
+		}
+	  }
+
+	Here is the pseudocode for readTableName()
+
+		{
+		    tablename = readline;
+		    removeQuotes(tableName); //Change "TableName" to TableName
+		    return tableName;
+		}
+	
+	Here is the pseudocode for readColumns();
+
+		{
+		    columns = readline;
+		    columns = removeQuotes(columns);
+		    columns = explode(columns,',');
+		    return columns;
+		}
+
+	Here is the pseudocode for readData()
+
+		{
+		    //data will be an array, which will have arrays added to it.
+		    //That is, data is a 2D array
+		    data = Array();
+
+		    line = readline;
+		    while(line != "")
+		    {
+		    	row = replaceQuotesWithSingleQuotes(row);
+		    	row = explode(row,',');
+			data[] = row; //I think this works, maybe not
+		    	row = readline;
+		    }
+		}
+			
+	Here is the pseudocode for updateDatabase(database, tablename,columns,data)
+
+		{
+		    for each element in data
+		    {
+			    query = generateUpdateQuery(tablename,columns,element);
+			    mysqli_query(database,query);
+		    }
+		}
+
+	Here is the pseudocode for generateUpdateQuery(tablename,columns,element)
+
+		{
+		    //Generate the SET part of the query
+		    set = ""
+		    for index i in columns
+		    {
+			set = set . column[i] . "=" . element[i];
+			if (i+1 < numberOfColumns)
+			    set = set . ",";
+		    }
+
+		    return "UPDATE " . tablename . " SET" . set . " WHERE " . column[0] . "=" . element[0];
+		}
+
+
+(2.1)
+	The prototypes for these functions are in 
+	Matching/matchFunctions.php
+	
+	Function to add a match between mentor and mentee
+	addMatch($database,$mentorEmail,$menteeEmail)
+	{
+	    $mentor = new Mentor;
+	    $mentee = new Mentee;
+
+	    menteeMatches = mentee->getMatchedWith($database,$menteeEmail);
+	    mentorMatches = mentor->getMatchedWith($database,$mentorEmail);
+
+	    /* 
+	    	Here is where you modify the strings
+	        returned to have the appropriate
+	        emails.
+		
+		Mentor should get Mentee's email 
+		Mentee should get Mentor's email.
+
+		If there is already a match in the
+		table, then make sure to put a comma
+		between the existing match and the 
+		new one.
+
+		DO NOT DELETE THE OLD MATCHES
+		 (that is what the removeMatch() function does)
+	    */
+
+	    //Once the strings are modified then just update the
+	    //database with the new strings
+	    mentee->setMatchedWith($database,$menteeEmail,modifiedMenteeMatches);
+	    mentor->setMatchedWith($database,$mentorEmail,modifiedMentorMatches);
+	}
+	
+	Function to remove a match between mentor and mentee
+	removeMatch($database,$mentorEmail,$menteeEmail)
+	{
+	    $mentor = new Mentor;
+	    $mentee = new Mentee;
+
+	    menteeMatches = mentee->getMatchedWith($database,$menteeEmail);
+	    mentorMatches = mentor->getMatchedWith($database,$mentorEmail);
+
+	    /* 
+	    	Here is where you modify menteeMatches and
+		mentorMatches
+
+		Remove Mentor's email from Mentee's MatchedWith
+		Remove Mentee's email from Mentor's MatchedWith
+
+		Make sure to remove any comma that may be left
+		behind when you remove the email
+			i.e.
+			If the original MatchedWith is: email1, email2
+			and you remove email2 then the resulting
+			MatchedWith should be "email1" NOT "email1,".
+	    */
+
+	    //Once the strings are modified then just update the
+	    //database with the new strings
+	    mentee->setMatchedWith($database,$menteeEmail,$modifiedMenteeMatches);
+	    mentor->setMatchedwith($database,$mentorEmail,$modifiedMentorMatches);
+	}
+
+(3.0)
+	The prototypes for all of these function are in
+	Mentor/Mentor.php
+
+	Function to get MatchedWith column data for Mentor
+	Returns the data in the Email-MatchedWith cell as a string
+	
+	getMatchedWith($database, $email)
+	{
+	    $result = SELECT MatchedWith FROM Mentor WHERE Email=$email
+
+	    //Convert the query result to a string like this:
+	    //	  $stringResult = "email1,email2,email3"
+
+	    return $stringResult;
+	}
+
+	/* 
+	   Sets MatchedWith for the Mentor represented by the email $email
+	   to $data
+
+	   $email and $data are strings
+	*/
+	setMatchedWith($database,$email,$data)
+	{
+	    //Need to create an array  $columns = [$email,"MatchedWith"]
+	    //Need to create an array  $rowData = [$email,$data]
+	    $query = generateUpdateQuery($tableName,$columns,$rowData);
+	    mysqli_query($database,$query);
+	}
+
+	/*
+	  Removes the Mentor represented by $mentorEmail from the Mentor table.
+	  Also removes all matches to this Mentor
+	*/
+	removeMentor($database,$mentorEmail)
+	{
+	    //Remove all matches to this Mentor from the Mentee table
+	    //Querying the database with something like the following
+	    //seems neccessary:
+	    //   SELECT Email FROM Mentee
+	    for each Email in Mentee
+	    {
+		removeMatch($database,$mentorEmail,$menteeEmail)
+	    }
+
+	    $query = generateDeleteQuery($tableName,$column,$mentorEmail);
+	    mysqli_query($database,$query);
+	}
+
+	/* 
+		Adds $values to $columns in the Mentor table
+		
+		$columns and $values are arrays which are of equal length
+		and whose elements are mapped 1-to-1 by index
+
+		i.e. $columns[N]=$values[N] must be a column and data
+		     pair which needs to be added to the Mentor table.
+		     (N is just any integer index)
+
+	*/
+	addMentor($database,$columns,$values)
+	{
+	    $query = generateInsertQuery($tableName,$columns,$values);
+	    mysqli_query($database,$query);
+	}
+
+(3.1)
+	The prototypes for all of these function are in
+	Mentee/Mentee.php
+	
+	*****
+	These should be almost identical to the functions in Mentor.php 
+	functions.
+
+	Just copy paste the Mentor functions after they are written and
+	edit them.
+	*****
+	
+	Function to get MatchedWith column data for Mentor
+	getMatchedWith();
+
+	Function to set MatchedWith column data for Mentor
+	setMatchedWith();
+
+	Function to remove a Mentee from the Mentee table
+	removeMentee($database,$menteeEmail);
+
+	Function to add a Mentee to the Mentee table
+	addMentee($database,$columns,$data);
+
+(4.0)
+	Put this in Query/queryFunctions.php
+
+	generateInsertQuery($tableName,$columns,$values)
+	{
+	    //generate this query from the string $tableName,
+	    //the array of strings $columns, and the array of strings $values
+	    INSERT INTO table_name (column1, column2, column3,...)
+	    VALUES (value1, value2, value3,...) 
+	}
+
+
+	/* Empty string "" for $column or $value means delete all rows */
+	generateDeleteQuery($tableName,$column,$value)
+	{
+	    if(length($column) > 0 && length($value) > 0)
+		return "DELETE FROM $tableName WHERE $column=$value";
+	    else
+		return "DELETE FROM $tableName";
+	}
+
+(5.0)
+	modify importDatabase() to add any new row encountered to the
+	database
+	
+	Probably this just means check if column[0]value[0] for each
+	row exists in the table.
+
+	If it does, update row
+	If it does not, add row
+
+	add a clear() function to Mentor and Mentee
+	clear($database)
+	{
+	    $query = generateDeleteQuery("Mentor","","");
+	    mysqli_query($database,$query);
+	}
+	
+	Should be as easy as running "DELETE FROM Mentor"
+	
+---------------STUFF THAT'S DONE---------------------------
+(DONE) Have convert.py output a file named TableNames
+    which contains the name of a table with a corresponding
+    .csv file for each file generated by the convert.py
+    script. 
+
+    The importDatabase.php script should then read in the
+    names of the tables into the $tableNames array by
+    parsing the TableNames file.
+    
+    This way, should convert.py change to create
+    more (or less) or differently named tables, the 
+    importDatabase.php script will not have to be edited
+    in any way.
+
+(DONE) Currently the importDatabase.php script must be ran from
+    the command line. This is not very useful for programmers
+    who simply want to import and invoke a function from their 
+    own script. Most of importDatabase.php (the part that does
+    not parse the command line) can be abstracted to a function
+    accepting the interpreted command line arguments. The new
+    file can be called importDatabaseFunctions.php. Then, the
+    importDatabase.php script will simply call this function
+    with the parsed command line.
+
+(DONE)   Add a table to the database named Administrator
+         Probably just give it generic stuff for right now
+
+(DONE) We need to change convert.py to print out the names
 	of the columns into the files containing the 
 	table's data (i.e. Mentor.csv and Mentee.csv).
 
@@ -56,71 +366,53 @@
 	This will allow us to add columns to any part of the
 	existing Mentor and Mentee tables without having
 	to change the convert.py or importDatabase() scripts.
-(1.1)
-	rename the importDatabase() function to importOldDatabase() 
-	rename importDatabase.php to importOldDatabase.php 
-	 -- make sure to change the call to importDatabase() within
-	    the script to importOldDatabase.php
+
+(DONE)   Add the following columns to the Mentee table (make them varchar(200)
+	because alot of these are going to allow for multiple selections
+	from a list, so they could get really long)
+		Add column : "ExtendedDegree" to Mentee after "Major"
+		PreferredName
+		CUID
+		Concentration (related to Major so put it near there)
+		Minor
+		IndustryOfInterest
 		
-	Then create this function in importDatabaseFunctions.php:
-	importDatabase($database, $file) 
-	-- adds the data in the file $file
-	to the database. The file is assumed to be
-	of the format created by exportDatabase().
-	This is the format:
-	"TableName"
-	"Column1", "Column2",...
-	"Data1","Data2",...
-	"Data1","Data2",...
+		Change the address related columns to be prefixed by 
+		"Current"
+		
+		Add a column for each address related column
+		prefixed by "Permanent"
+			--Long story short, she wants to have
+			the user's current address and permanent
+			address
 
-	"TableName2"
-	...
+		Gender
+		
+		HobbiesAndInterests
+		MBTI
+		
+		(make this one varchar(512))
+		Activities
 
-	***
-	The newline between tables is optional and should not
-	be used as a flag when parsing the file.
-	Just check if the line from the file (after being trimmed
-	of whitespace) is in fact the name of a table in the 
-	database. If it is an existing table, then assume the
-	next line contains the columns of the table and
-	the following lines are the data of the table until another
-	row is encountered which is a valid table name.
+(DONE)	Add the following columns to the Mentor table (make them varchar(200)
+	because alot of these are going to allow for multiple selections
+	from a list, so they could get really long)
+		PreferredName
+		GraduationYear
+		Major
+		Concentrations
+		Minor
+		ExtendedDegree
+		CurrentIndustry
+		OtherIndustryExpertise
+		Gender
+		HobbiesAndInterest
+		MBTI
+		
+		(make this one varchar(512))
+		Activities
 
-	If you parse a line which is only whitespace (the "" after
-	trimming), then simply ignore it and move on to the next
-	line.
-	***
+		Change address columns to be prefixed by "Permanent"
 
-	Do not assume that all the columns will be present. Just add
-	the data to the columns that are present in the spreadsheet.
-
-	Essentially you are trying to do the following query
-	 INSERT INTO table_name (column1, column2, ...)
-	 VALUES (value1, value2, ...)
-	for each row of a table
-
-(1.1)   Add column : "ExtendedDegree" to Mentee after "Major"
----------------STUFF THAT'S DONE---------------------------
-(DONE) Have convert.py output a file named TableNames
-    which contains the name of a table with a corresponding
-    .csv file for each file generated by the convert.py
-    script. 
-
-    The importDatabase.php script should then read in the
-    names of the tables into the $tableNames array by
-    parsing the TableNames file.
-    
-    This way, should convert.py change to create
-    more (or less) or differently named tables, the 
-    importDatabase.php script will not have to be edited
-    in any way.
-
-(DONE) Currently the importDatabase.php script must be ran from
-    the command line. This is not very useful for programmers
-    who simply want to import and invoke a function from their 
-    own script. Most of importDatabase.php (the part that does
-    not parse the command line) can be abstracted to a function
-    accepting the interpreted command line arguments. The new
-    file can be called importDatabaseFunctions.php. Then, the
-    importDatabase.php script will simply call this function
-    with the parsed command line.
+(DONE)
+	Add MatchedWith column to both the Mentor and the Mentee tables
