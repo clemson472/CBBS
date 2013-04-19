@@ -13,12 +13,13 @@ class Mentee
     {
     }
     
-    function removeMentee($database,$mentorEmail) 	
+    function removeMentee($database,$menteeEmail) 	
     {
     }
 
     function clear($database)
     {
+	mysqli_query($database,"DELETE FROM Mentee");
     }
 }
 ?>
