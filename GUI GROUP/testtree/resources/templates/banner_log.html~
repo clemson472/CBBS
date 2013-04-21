@@ -1,0 +1,5 @@
+<link rel="stylesheet media="screen" href="banner.css" type"text/css"/>
+<div id="bar_top">
+Hello, Christopher | Logout
+</div>
+<div id="banner"></div>

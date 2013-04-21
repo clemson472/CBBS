@@ -1,6 +1,6 @@
 #bar_top{
 	height:20;
-	background-image:url('bar_top.png');
+	background-image:url('../images/bar_top.png');
 	margin-left: auto;
     margin-right: auto;
 	text-align: right;
@@ -9,12 +9,12 @@
 
 #banner{
 	height:200;
-	background-image:url('banner.png');
+	background-image:url('../images/banner.png');
 	margin-left: auto;
 	margin-right: auto;
 }
 
 #divider{
 	height:12;
-	background-image:url('banner_divider.png');
+	background-image:url('../images/banner_divider.png');
 }
