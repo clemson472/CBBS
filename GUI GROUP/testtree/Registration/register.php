@@ -17,7 +17,7 @@
         </p>
         <p><a href="" target="_blank">Goal Worksheet</a></p>
         <p><a href="" target="_blank">Code of Conduct</a></p> 
-        <p><br/><a href="Registration/register2.html">Registration</a></p>
+        <p><br/><a href="Registration/register2.php">Registration</a></p>
         
     </body>
     

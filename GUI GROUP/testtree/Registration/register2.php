@@ -2,6 +2,9 @@
 <html>
     
     <head>
+    		<base href="http://oss-ci.cs.clemson.edu:8080/GUI%20GROUP/testtree/">
+			<link rel="stylesheet media="screen" href="resources/css/style.css" type"text/css"/>
+    
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>User Registration</title>
         
@@ -434,8 +437,8 @@
 
             </table>
         </form>        
-        <p><br/><a href="register.html">Previous</a></p>
-        <p><a href="register3.html">Next</a></p>
+        <p><br/><a href="Registration/register.php">Previous</a></p>
+        <p><a href="Registration/register3.php">Next</a></p>
     </body>
     
 </html>
