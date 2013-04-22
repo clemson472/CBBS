@@ -4,7 +4,7 @@
 
 <body>
 
-<?php include("../resources/templates/banner_log.php"); ?>
+<?php include("../resources/templates/banner_log.html"); ?>
 <?php include("../resources/templates/navbar_admin.html"); ?>
 
 "import / export"
