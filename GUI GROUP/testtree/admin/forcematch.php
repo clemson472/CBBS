@@ -1,5 +1,5 @@
 <html>
-<link rel="stylesheet media="screen" href="resources/style.css" type"text/css"/>
+<link rel="stylesheet media="screen" href="resources/css/style.css" type"text/css"/>
 <body>
 
 <?php
