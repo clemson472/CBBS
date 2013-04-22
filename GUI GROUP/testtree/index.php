@@ -3,7 +3,7 @@
 <link rel="stylesheet media="screen" href="resources/css/style.css" type"text/css"/>
 
 <body>
-<?php include("../resources/templates/banner_nolog.html"); ?>
+<?php include("resources/templates/banner_nolog.html"); ?>
 
 "Not logged in page"
 </body>
