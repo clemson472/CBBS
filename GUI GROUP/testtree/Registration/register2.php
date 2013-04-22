@@ -96,8 +96,11 @@
         
     </head>
     
+<body>
+<?php include("../resources/templates/banner_nolog.html"); ?>  </body>    
+    
     <body onload="hide_form();">
-    	<?php include("../resources/templates/banner_nolog.html"); ?>          
+    	        
         <h4>User Registration</h4>
         <p>* Denotes a required field.</p>
         
