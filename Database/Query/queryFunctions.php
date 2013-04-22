@@ -13,12 +13,23 @@ function generateUpdateQuery($tableName, $columns, $rowData)
 
     for($i = 0; $i < count($columns); $i=$i+1)
     {
-	$set = $set . $columns[$i] . "='" . $rowData[$i] . "'";
+	//Check if the data value has been put inside single-quotes and add
+	//them if needed
+	$len = strlen($rowData[$i]);
+	if( $len <= 1 || $rowData[$i][0] != "'" || $rowData[$i][$len-1] != "'" )
+	    $set = $set . $columns[$i] . "='" . $rowData[$i] . "'";
+	else
+	    $set = $set . $columns[$i] . "=" . $rowData[$i];
+
 	if ($i+1 < count($columns))
 	    $set = $set . ",";
     }
 
-    return "UPDATE " . $tableName . " SET " . $set . " WHERE " . $columns[0] . "='" . $rowData[0] . "'";
+    $len = strlen($rowData[0]);
+    if( $len <= 1 || $rowData[0][0] != "'" || $rowData[0][$len-1] != "'" )
+	return "UPDATE " . $tableName . " SET " . $set . " WHERE " . $columns[0] . "='" . $rowData[0] . "'";
+    else
+	return "UPDATE " . $tableName . " SET " . $set . " WHERE " . $columns[0] . "=" . $rowData[0];
 }
 
 /*
@@ -39,12 +50,22 @@ function generateInsertQuery($tableName,$columns,$values)
 	if($i > 0)
 	{
 	    $columnString = $columnString . "," . $columns[$i];
-	    $valueString  = $valueString . ",'" . $values[$i] . "'";
+	    
+	    $len = strlen($values[$i]);
+	    if( $len <= 1 || $values[$i][0] != "'" || $values[$i][$len-1] != "'" )
+		$valueString  = $valueString . ",'" . $values[$i] . "'";
+	    else
+		$valueString  = $valueString . "," . $values[$i];
 	}
 	else
 	{
 	    $columnString = $columns[0];
-	    $valueString  = "'" . $values[0] . "'";
+
+	    $len = strlen($values[0]);
+	    if( $len <= 1 || $values[0][0] != "'" || $values[0][$len-1] != "'" )
+		$valueString  = "'" . $values[0] . "'";
+	    else
+		$valueString  = $values[0];
 	}
     }
     
@@ -63,6 +84,10 @@ function generateInsertQuery($tableName,$columns,$values)
  */
 function generateDeleteQuery($tableName,$column,$value)
 {
-    return "DELETE FROM $tableName WHERE $column='$value'";
+    $len = strlen($value);
+    if( $len <= 1 || $value[0] != "'" || $value[$len-1] != "'" )
+	return "DELETE FROM $tableName WHERE $column='$value'";
+    else
+	return "DELETE FROM $tableName WHERE $column=$value";
 }
 ?>

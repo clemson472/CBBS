@@ -61,7 +61,7 @@ function createExcelEntry($database, $query)
  */
 function combineLabelAndEntry($label,$entry)
 {
-    return "\"" . $label . "\"\n" . $entry;
+    return "Table," . $label . "\n" . $entry;
 }
 
 /*
@@ -80,6 +80,9 @@ function combineColumnsAndRows($columns,$rows)
 function queryColumnsExcelString($database, $query)
 {
     $tableQuery = mysqli_query($database, $query);
+    $queryColumns = mysqli_fetch_fields($tableQuery);
+
+    /*
     $row = mysqli_fetch_array($tableQuery);
 
     if($row == NULL)
@@ -99,11 +102,28 @@ function queryColumnsExcelString($database, $query)
 
 	if ($columns === "")
 	{
-	    $columns = "\"$column\""; 
+	    $columns = "$column"; 
 	}
 	else
 	{
-	    $columns = $columns . ",\"$column\""; 
+	    $columns = $columns . ",$column"; 
+	}
+    }
+     */
+
+    $columns = "";
+
+    for($i = 1; $i < count($queryColumns); $i++)
+    {
+	$column = $queryColumns[$i]->name;
+
+	if ($columns === "")
+	{
+	    $columns = "$column"; 
+	}
+	else
+	{
+	    $columns = $columns . ",$column"; 
 	}
     }
 
@@ -159,11 +179,25 @@ function queryRowsExcelString($database, $query)
 
 	    if($i === 0) //Don't add a comma
 	    {
-		$values = $values . "\"" . $row[$i] . "\"";
+		if(strpos($row[$i],","))
+		{
+		    $values = $values . "\"" . $row[$i] . "\"";
+		}
+		else
+		{
+		    $values = $values . $row[$i];
+		}
 	    }
 	    else //Add a comma
 	    {
-		$values = $values . ",\"" . $row[$i] . "\"";
+		if(strpos($row[$i],","))
+		{
+		    $values = $values . ",\"" . $row[$i] . "\"";
+		}
+		else
+		{
+		    $values = $values . "," . $row[$i];
+		}
 	    }
 	}
     }while($row = mysqli_fetch_array($tableQuery));

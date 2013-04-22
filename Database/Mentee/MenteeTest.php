@@ -14,8 +14,7 @@ require '../includes.php';
 
 function connect()
 {
-    //$database = mysqli_connect("","","","");
-    $database = mysqli_connect("oss-ci.cs.clemson.edu","cpsc472","myDB4dmin","cpsc472");
+    $database = mysqli_connect("","","","");
 
     // Check connection
     if (mysqli_connect_errno($database))
@@ -27,7 +26,7 @@ function connect()
 	return $database;
 }
 
-function testRemoveMentor()
+function testRemoveMentee()
 {
     $database = connect();
 
@@ -44,44 +43,44 @@ function testRemoveMentor()
 	Array("Email","MatchedWith"),
 	Array("TempMentor@nothing.com","TempMentee@nothing.com"));
 
-    //Call Mentor->removeMentor()
-    $mentor = new Mentor;
-    $mentor->removeMentor($database, "TempMentor@nothing.com");
+    //Call Mentee->removeMentee()
+    $mentee->removeMentee($database, "TempMentee@nothing.com");
 
     mysqli_close($database);
 }
 
-function testAddMentor()
+function testAddMentee()
 {
     $database = connect();
-    $mentor = new Mentor;
-    $mentor->addMentor($database,
+    $mentee = new Mentee;
+    $mentee->addMentee($database,
 	Array("Email","MatchedWith"),
-	Array("TempMentor@nothing.com","TempMentee@nothing.com,TempMentee2@nothing.com"));
+	Array("TempMentee@nothing.com","TempMentor@nothing.com"));
     mysqli_close($database);
 }
 
 function testGetMatchedWith()
 {
-    testAddMentor();
+    //testAddMentee();
     $database = connect();
-    $mentor   = new Mentor;
-    print "\nShould be 'TempMentee@nothing.com'\n";
-    print $mentor->getMatchedWith($database,"TempMentor@nothing.com");
+    $mentee   = new Mentee;
+    print "\nShould be 'TempMentor@nothing.com'\n";
+    print $mentee->getMatchedWith($database,"TempMentee@nothing.com");
     print "\n";
     mysqli_close($database);
 }
 
 function testSetMatchedWith()
 {
-    testAddMentor();
+    //testAddMentee();
     $database = connect();
-    $mentor   = new Mentor;
-    $mentor->setMatchedWith($database,
-	"TempMentor@nothing.com",
-	"nope@nothing.com,nope2@nothing.com");
-    print "\nShould be 'nope@nothing.com,nope2@nothing.com'\n";
-    print $mentor->getMatchedWith($database, "TempMentor@nothing.com");
+    $mentee   = new Mentee;
+    $mentee->setMatchedWith($database,
+	"TempMentee@nothing.com",
+	"nope2@nothing.com");
+    print "\nShould be 'nope2@nothing.com'\n";
+    print $mentee->getMatchedWith($database, 
+	"TempMentee@nothing.com");
     print "\n";
     mysqli_close($database);
 }
@@ -93,10 +92,9 @@ function testSetMatchedWith()
  * groups may have data in the tables that they are using for
  * their own debugging right now. So don't alter it.
  */
-testRemoveMentor(); 
-testAddMentor();
+testRemoveMentee(); 
+testAddMentee();
 testGetMatchedWith();
 testSetMatchedWith();
-testRemoveMentor(); 
-testAddMentor();
+testRemoveMentee(); 
 ?>

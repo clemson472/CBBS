@@ -3,8 +3,16 @@ class Mentor
 {
     function getMatchedWith($database, $email)
     {
+	$result = "SELECT MatchedWith FROM Mentor WHERE Email='$email'";
+
+	$queryResult = mysqli_query($database,$result);
+	$row = mysqli_fetch_array($queryResult);
+
+	$stringResult = (string)$row[0];
+
+	return $stringResult;
     }
-    
+
     function removeMentor($database,$mentorEmail) 	
     {
 	$tableQuery = mysqli_query($database,"SELECT Email FROM Mentee");
@@ -23,10 +31,16 @@ class Mentor
 
     function setMatchedWith($database,$email,$data) 
     {
+	$columns = array("Email","MatchedWith");
+	$rowData = array($email,$data);
+	$query = generateUpdateQuery("Mentor",$columns,$rowData);
+	mysqli_query($database,$query);
     }
     
     function addMentor($database,$columns,$values)
     {
+	$query = generateInsertQuery("Mentor",$columns,$values);
+	mysqli_query($database,$query);
     }
 
     /*
