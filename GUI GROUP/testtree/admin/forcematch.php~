@@ -8,7 +8,7 @@
 include("../resources/templates/banner_log.html");
 include("../resources/templates/navbar_admin.html");
 
-echo "<link rel=\"stylesheet\" media=\"screen\" href=\"../resources/forcematchstyle.css\" type\"text/css\"/>";
+echo "<link rel=\"stylesheet\" media=\"screen\" href=\"resources/forcematchstyle.css\" type\"text/css\"/>";
 echo "<div class=\"myTable\">";
 
 $i=0;
