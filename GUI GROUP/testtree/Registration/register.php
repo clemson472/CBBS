@@ -8,7 +8,7 @@
     </head>
     
     <body>
-			<?php include("resources/templates/banner_nolog.html"); ?>    
+			<?php include("../resources/templates/banner_nolog.html"); ?>    
     
         <h2>User Registration</h2>
         <h4>Welcome to Your Mentoring Program! </h4>
@@ -17,7 +17,7 @@
         </p>
         <p><a href="" target="_blank">Goal Worksheet</a></p>
         <p><a href="" target="_blank">Code of Conduct</a></p> 
-        <p><br/><a href="register2.html">Registration</a></p>
+        <p><br/><a href="Registration/register2.html">Registration</a></p>
         
     </body>
     
