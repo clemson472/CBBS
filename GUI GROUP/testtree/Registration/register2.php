@@ -7,7 +7,7 @@
     
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>User Registration</title>
-        <?php include("../resources/templates/banner_nolog.html"); ?>  
+        
         <script language="JavaScript" type="text/javascript">
         
             var common_fields=["username_row","password_row","confirm_row","fname_row","mname_row","lname_row",
@@ -96,7 +96,8 @@
         
     </head>
     
-    <body onload="hide_form();">        
+    <body onload="hide_form();">
+    	<?php include("../resources/templates/banner_nolog.html"); ?>          
         <h4>User Registration</h4>
         <p>* Denotes a required field.</p>
         
