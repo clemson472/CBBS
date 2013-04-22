@@ -5,7 +5,7 @@
 
 <body>
 
-<?php include("../resources/templates/banner.php"); ?>
+<?php include("../resources/templates/banner_log.php"); ?>
 <?php include("../resources/templates/navbar_admin.html"); ?>
 
 "spreadsheet"
@@ -235,7 +235,7 @@ else{
 	}
 $result = mysql_query($query) or die('Query failed: ' . mysql_error());
 $numRows=mysql_num_rows($result);
-echo "<FORM method = \"post\" action = \"http://localhost/test3.php\" >";
+echo "<FORM method = \"post\" action = \"resources/scripts/php/test3.php\" >";
 echo "Name Match:<Input type = \"text\" name =\"searchFor\">";
 echo "<INPUT type = \"submit\" value = \"GO\">";
 echo "<br />";

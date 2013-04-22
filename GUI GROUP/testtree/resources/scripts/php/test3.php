@@ -1,13 +1,6 @@
 <html>
-<link rel="stylesheet media="screen" href="resources/style.css" type"text/css"/>
-<link rel="stylesheet" media="screen" href="resources/myTableStyle.css" type="text/css"/>
-
+<link rel="stylesheet" media="screen" href="myTableStyle.css" type="text/css">
 <body>
-
-<?php include("resources/templates/banner_log.html"); ?>
-<?php include("resources/templates/navbar_test.html"); ?>
-
-"content goes here"
 <?php
 echo "<div class=\"myTable\">";
 $i=0;
@@ -234,7 +227,7 @@ else{
 	}
 $result = mysql_query($query) or die('Query failed: ' . mysql_error());
 $numRows=mysql_num_rows($result);
-echo "<FORM method = \"post\" action = \"http://localhost/test3.php\" >";
+echo "<FORM method = \"post\" action = \"resources/scripts/php/test3.php\" >";
 echo "Name Match:<Input type = \"text\" name =\"searchFor\">";
 echo "<INPUT type = \"submit\" value = \"GO\">";
 echo "<br />";
@@ -349,8 +342,6 @@ mysql_free_result($result);
 mysql_close($link);
 echo "</div>";
 ?>
-
-
 </body>
-
 </html>
+

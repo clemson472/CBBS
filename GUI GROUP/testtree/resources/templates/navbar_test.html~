@@ -10,7 +10,7 @@
 	<!-- /META -->
     
     <!-- CSS -->
-	<link rel="stylesheet" href="css/navbar_style.css" />
+	<link rel="stylesheet" href="resources/css/navbar_style.css" />
 	<!-- /CSS -->
     
     <!-- SCRIPTS + JQUERY -->
@@ -38,21 +38,21 @@
             <div class="wrap">
                 <nav>
                     <ul id="top_nav">
-                        <li><a href="index.html" class="active">SPREADSHEET</a></li>
-                        <li><a href="#">SEND EMAIL</a>
+                        <li><a href="admin/spreadsheet.php" class="active">SPREADSHEET</a></li>
+                        <li><a href="admin/sendemail.php">SEND EMAIL</a>
                         </li>
-                        <li><a href="#">FORCE MATCH</a>
+                        <li><a href="admin/forcematch.php">FORCE MATCH</a>
                         </li>
-                        <li><a href="#">IMPORT/EXPORT</a>
+                        <li><a href="admin/importexport.php">IMPORT/EXPORT</a>
 						</li>
-						<li><a href="#">UPLOAD</a>
+						<li><a href="admin/upload.php">UPLOAD</a>
 						</li>
-						<li><a href="#">SURVEYS</a>
+						<li><a href="admin/surveys.php">SURVEYS</a>
 						</li>
 						<li><a href="#">INVITE</a>
 							<ul><!-- begin 1st level -->
-							    <li><a href="#">MENTOR</a></li>
-							    <li><a href="#">MENTEE</a></li>
+							    <li><a href="admin/invitementor.php">MENTOR</a></li>
+							    <li><a href="admin/invitementee.php">MENTEE</a></li>
 							</ul><!-- end 1st level -->
 						</li>
 						

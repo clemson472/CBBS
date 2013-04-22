@@ -4,14 +4,13 @@
 <head>
 
 	<base href="http://oss-ci.cs.clemson.edu:8080/GUI%20GROUP/testtree/">
-
     <!-- META -->
 	<meta charset="utf-8" />
     <title>Navigation Menu</title>
 	<!-- /META -->
     
     <!-- CSS -->
-	<link rel="stylesheet" href="resources/css/style.css" />
+	<link rel="stylesheet" href="resources/css/navbar_style.css" />
 	<!-- /CSS -->
     
     <!-- SCRIPTS + JQUERY -->
@@ -39,25 +38,33 @@
             <div class="wrap">
                 <nav>
                     <ul id="top_nav">
-                        <li><a href="admin/spreadsheet.php" class="active">Spreadsheet</a></li>
-                        <li><a href="admin/sendemail.php">Send Email</a></li>
-			<li><a href="admin/forcematch.php">Force Match</a></li>
-			<li><a href="admin/importexport.php">Import/Export</a></li>
-			<li><a href="admin/upload.php">Upload</a></li>
-			<li><a href="admin/surveys.php">Surveys</a></li>
-                        <li><a href="#">Invite</a>
-                            <ul>
-            			    <li><a href="admin/invitementor.php">Mentor</a></li>
-				    <li><a href="admin/invitementee.php">Mentee</a></li>
-                            </ul>
+                        <li><a href="admin/spreadsheet.php" class="active">SPREADSHEET</a></li>
+                        <li><a href="admin/sendemail.php">SEND EMAIL</a>
+                        </li>
+                        <li><a href="admin/forcematch.php">FORCE MATCH</a>
+                        </li>
+                        <li><a href="admin/importexport.php">IMPORT/EXPORT</a>
+						</li>
+						<li><a href="admin/upload.php">UPLOAD</a>
+						</li>
+						<li><a href="admin/surveys.php">SURVEYS</a>
+						</li>
+						<li><a href="#">INVITE</a>
+							<ul><!-- begin 1st level -->
+							    <li><a href="admin/invitementor.php">MENTOR</a></li>
+							    <li><a href="admin/invitementee.php">MENTEE</a></li>
+							</ul><!-- end 1st level -->
+						</li>
+						
                     </ul>
-                    <form id="search" action="#">
+                    
+<!--                    <form id="search" action="#">
                         <fieldset>
                             <input type="text" name="search" />
                             <input type="submit" value="" />
                         </fieldset>
                     </form>
-                    
+-->                    
                     <div id="container">
                         <!-- Login Starts Here -->
                         <div id="loginContainer">

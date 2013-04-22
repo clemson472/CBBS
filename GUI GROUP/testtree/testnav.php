@@ -5,7 +5,7 @@
 <body>
 
 <?php include("resources/templates/banner_log.html"); ?>
-<?php include("resources/templates/navbar_test.html"); ?>
+<?php include("resources/templates/navbar_admin.html"); ?>
 
 "content goes here"
 <?php
