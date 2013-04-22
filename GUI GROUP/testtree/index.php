@@ -6,5 +6,6 @@
 <?php include("resources/templates/banner_nolog.html"); ?>
 
 "Not logged in page"
+<a href="Registration/register.php">REGISER</a>
 </body>
 </html>

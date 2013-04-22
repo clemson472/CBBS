@@ -1,11 +1,15 @@
 <html>
     
     <head>
+    		<base href="http://oss-ci.cs.clemson.edu:8080/GUI%20GROUP/testtree/">
+		<link rel="stylesheet media="screen" href="resources/css/style.css" type"text/css"/>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>User Registration</title>
     </head>
     
     <body>
+			<?php include("resources/templates/banner_nolog.html"); ?>    
+    
         <h2>User Registration</h2>
         <h4>Welcome to Your Mentoring Program! </h4>
         <p>Please note that by beginning the registration process you agree to adhere to the
