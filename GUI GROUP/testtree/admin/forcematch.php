@@ -1,4 +1,5 @@
 <html>
+<base href="http://oss-ci.cs.clemson.edu:8080/GUI%20GROUP/testtree/">
 <link rel="stylesheet media="screen" href="resources/css/style.css" type"text/css"/>
 <body>
 
@@ -6,7 +7,7 @@
 
 include("../resources/templates/banner_log.html");
 include("../resources/templates/navbar_admin.html");
-echo "<link rel=\"stylesheet\" media=\"screen\" href=\"../resources/css/forcematchstyle.css\" type\"text/css\"/>"; //LOAD STYLE SHEET
+echo "<link rel=\"stylesheet\" media=\"screen\" href=\"resources/css/forcematchstyle.css\" type\"text/css\"/>"; //LOAD STYLE SHEET
 
 /*-------------------
 	Variables
