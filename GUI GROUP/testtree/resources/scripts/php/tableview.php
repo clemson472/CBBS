@@ -404,7 +404,7 @@ else{
 }
 $result = mysql_query($query) or die('Query failed: ' . mysql_error());
 $numRows=mysql_num_rows($result);
-echo "<FORM method = \"post\" action = \"resources/scripts/php/tableview.php\" >";
+echo "<FORM method = \"post\" action = \"admin/spreadsheet.php\" >";
 
 if($queryInUse==$allQuery && $activeFlag)
 	echo "<INPUT type = \"radio\" name =\"doNothing\" value = \"All\" checked>All";
