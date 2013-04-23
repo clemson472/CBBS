@@ -64,7 +64,7 @@ if(isset($_POST['upload'])) {
 
 
 // change username to be based on login credentials
-	$TARGET_PATH = "docs/".$name;
+	$TARGET_PATH = "../../uploaded/".$name;
 	$USER_NAME = "cyrus";
 	
 	if (file_exists($TARGET_PATH)) {
