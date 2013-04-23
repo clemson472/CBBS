@@ -1,0 +1,94 @@
+body{
+        background-color: #FFFFFF;
+	//overflow-x: auto;
+	//overflow-y: auto;
+	height: 100%;
+	width: 100%;
+	font-size: 100%;
+	//text-align: center;
+}
+
+.myTable tr:nth-child(odd) {
+    background-color: #EDEDED;
+}
+
+.myTable table{
+	table-layout: fixed;
+	position: relative;
+	//left: 30px;
+	border-collapse: collapse;
+	empty-cells: show;
+	//width:document.clientWidth;
+	//margin-left: auto;
+	//margin-right: auto;
+}
+
+.myTable table td, .myTable table th {
+	table-layout: fixed; 
+        border: 1px solid #5D5D5D;
+        padding: 5px;
+	line-height: 30px;
+	//height: 30px;
+}
+
+
+.myTable .blueButton INPUT[type="submit"]{
+	border-radius:40px/22px;
+	height: 20px;
+	background-color: #2B5AA5;
+	color: #FFFFFF;
+	//background-color: #EBEADB;
+}
+
+.myTable INPUT[type="submit"]:hover{
+	cursor: hand; 
+	cursor: pointer;
+}
+
+
+.myTable button:hover{
+	cursor: hand; 
+	cursor: pointer;
+}
+
+.myTable .columnHeaders INPUT{
+	background: none;
+	background-color: #EDEDED;
+	border: 0;
+	color: #000000;
+	font-weight: bold;
+}
+
+.myTable .columnHeaders{
+	font-weight: bold;
+}
+
+.myTable .rowsPerPageText INPUT[type="text"]{
+	width: 35px;
+}
+
+.myTable .rowsPerPageText INPUT[type="submit"]{
+	border: 0;
+	background-color: #EDEDED;
+}
+
+.myTable .columnHeaders INPUT:hover{
+    	text-decoration: underline;
+	cursor: hand; 
+	cursor: pointer;
+}
+
+.myTable INPUT[type="submit"]{
+	font-weight: bold;
+	background-color: #EBEADB;
+}
+
+.myTable .rowsPerPageText{
+	//position: relative;
+	//left: 825px;
+}
+
+.myTable .blueButton INPUT[id="rightSide"]{
+	//position: relative;
+	//left: 765px;
+}
