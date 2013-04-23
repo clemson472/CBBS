@@ -32,6 +32,8 @@
             }
                         
             function change_form() {
+            	
+            	document.getElementById(bar_top).style.display = '';
                 if (document.getElementById("role").value == "mentee") {
                     change_display_value(mentee_fields,show);
                     change_display_value(common_fields,show);
