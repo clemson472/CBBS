@@ -26,7 +26,6 @@
 
 <?php include("../resources/templates/banner_log.html"); ?>
 <?php include("../resources/templates/navbar_user.html"); ?>
-<?php include("rsvpscript.php"); ?>
 
 <?php
     $myfilename = "event_des.html";
@@ -62,6 +61,8 @@
      <button class="button" type="submit" value="send">RSVP!</button>
 </fieldset>
 </form>
+
+<?php include("rsvpscript.php"); ?>
 
 </body>
 </html>
