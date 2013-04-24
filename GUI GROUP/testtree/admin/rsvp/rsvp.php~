@@ -4,7 +4,7 @@ $rsvps = $_POST['rsvps'];
 
 $formcontent="RSVP  : $rsvps   \n";
 
-$recipient = "rnovak@g.clemson.edu";
+$recipient = "tgadde@g.clemson.edu";
 
 $subject = "RSVP";
 $mailheader = "RSVP \r\n";
