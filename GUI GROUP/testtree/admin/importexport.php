@@ -32,7 +32,7 @@ if(isset($_POST['import'])) {
    or die('Could not connect to mysql');
 	mysqli_select_db($database, $dbname) or die('Could not select database');
 	
-	$filename = $_FILES['doc'];
+	$filename = $_FILES['doc']['name'];
 	echo $filename;
 	//importDatabase($database, $filename);
 	}
