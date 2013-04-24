@@ -100,7 +100,7 @@
     
 <body>
 <?php include("../resources/templates/banner_nolog.html"); ?>  </body>    
-    <!--<img src="resources/images/banner.png" alt="some_text">-->
+    <!-- <img src="resources/images/banner.png" alt="some_text"> -->
     <body onload="hide_form();">
     	        
         <h4>User Registration</h4>

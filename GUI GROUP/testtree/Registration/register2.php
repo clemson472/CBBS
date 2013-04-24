@@ -96,12 +96,10 @@
                        
         </script>
         
-    </head>
+    </head>  
     
-<body>
-<?php include("../resources/templates/banner_nolog.html"); ?>  </body>    
-    <!-- <img src="resources/images/banner.png" alt="some_text"> -->
     <body onload="hide_form();">
+    <?php include("../resources/templates/banner_nolog.html"); ?>
     	        
         <h4>User Registration</h4>
         <p>* Denotes a required field.</p>
