@@ -77,7 +77,7 @@ if(isset($_POST['upload'])) {
 	if (move_uploaded_file($tmp_name, $TARGET_PATH)) {
 	// NOTE: This is where a lot of people make mistakes.
 	// We are *not* putting the image into the database; we are putting a reference to the file's location on the server
-		chmod($TARGET_PATH, "755");
+		chmod($TARGET_PATH, "0755");
 		$sql = "insert into docs (username, name, type, size) values ('$USER_NAME', '$name', '$type', '$size');";
 		$result = mysqli_query($con, $sql);
 		if(!$result) {
