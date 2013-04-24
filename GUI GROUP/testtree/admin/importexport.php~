@@ -39,7 +39,9 @@ if(isset($_POST['import'])) {
 
 
 ?>
-Import or Export Database Tables
+
+<tr height="40"><td colspan="2" align="center">Import or Export Database Tables</td></tr>
+
 <form action="admin/importexport.php" method="post" enctype="multipart/form-data" name="importForm">
 	<input type="hidden" name="MAX_FILE_SIZE" value="15000000">
 	<input name="doc" type="file" id="doc" size="50">

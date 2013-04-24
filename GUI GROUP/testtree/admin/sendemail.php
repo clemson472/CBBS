@@ -8,7 +8,8 @@
 <?php include("../resources/templates/banner_log.html"); ?>
 <?php include("../resources/templates/navbar_admin.html"); ?>
 
-<tr height="40"><td colspan="2" align="center">Send Bulk Email to Users</td></tr>
+<tr height="40"><td colspan="2" align="center">Send Email to Users</td></tr>
+<p>
 
 <?php include("../resources/templates/email.html"); ?>
 

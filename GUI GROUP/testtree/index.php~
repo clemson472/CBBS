@@ -5,7 +5,11 @@
 <body>
 <?php include("resources/templates/banner_nolog.html"); ?>
 
-"Not logged in page"
-<a href="Registration/register.php">REGISER</a>
+<a href="Registration/register.php">Registration</a>
+<p>
+<a href="admin/spreadsheet.php">Administrator Control Panel</a>
+<p>
+<a href="user/main.php">User Control Panel</a>
+
 </body>
 </html>

@@ -9,6 +9,7 @@
 <?php include("../resources/templates/navbar_admin.html"); ?>
 
 <tr height="40"><td colspan="2" align="center">Upload Documents to Webserver</td></tr>
+<p>
 
 <form action="resources/scripts/php/docUpload.php" method="post" enctype="multipart/form-data" name="docuploadform">
         <input type="hidden" name="MAX_FILE_SIZE" value="15000000">
