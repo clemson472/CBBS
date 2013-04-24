@@ -33,7 +33,7 @@
                         
             function change_form() {
             	
-            	document.getElementById("banner").style.display = '';
+            	
                 if (document.getElementById("role").value == "mentee") {
                     change_display_value(mentee_fields,show);
                     change_display_value(common_fields,show);
@@ -52,6 +52,7 @@
              }
              
              function hide_form() {
+             	document.getElementById('bar_top').style.display = show;
                 change_display_value(mentee_fields,hide);
                 change_display_value(common_fields,hide);
                 change_display_value(mentor_fields,hide);
