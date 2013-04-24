@@ -1,15 +1,11 @@
 <html>
     
     <head>
-        <base href="http://oss-ci.cs.clemson.edu:8080/GUI%20GROUP/testtree/">
-		  <link rel="stylesheet media="screen" href="resources/css/style.css" type"text/css"/>
-
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>User Registration</title>
     </head>
     
     <body>
-    	  <?php include("../resources/templates/banner_nolog.html"); ?>
         <h4>Invite a Mentor</h4>
         <p>Select Mentor Location
                 <select>
@@ -33,8 +29,8 @@
         <p>
             <input type="button" value="Show Me 5 New Mentors" /> 
         </p>
-        <p><br/><a href="Registration/register8.php">Previous</a></p>
-        <p><a href="Registration/register10.php">Next</a></p>
+        <p><br/><a href="register8.html">Previous</a></p>
+        <p><a href="register10.html">Next</a></p>
     </body>
     
 </html>

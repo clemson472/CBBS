@@ -1,15 +1,11 @@
 <html>
     
     <head>
-        <base href="http://oss-ci.cs.clemson.edu:8080/GUI%20GROUP/testtree/">
-		  <link rel="stylesheet media="screen" href="resources/css/style.css" type"text/css"/>
-		  
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>User Registration</title>
     </head>
     
     <body>
-    	  <?php include("../resources/templates/banner_nolog.html"); ?>
         <h4>Personal/Work Motivators</h4>
         <p>
             <input type="checkbox" name="check" />
@@ -99,8 +95,8 @@
             <input type="checkbox" name="check" />
             I work well in a team environment.
         </p>
-        <p><br/><a href="Registration/register6.php">Previous</a></p>
-        <p><a href="Registration/register8.php">Next</a></p>
+        <p><br/><a href="register6.html">Previous</a></p>
+        <p><a href="register8.html">Next</a></p>
     </body>
     
 </html>

@@ -402,8 +402,8 @@
             </tr>
         </table>        
         
-        <p><br/><a href="register2.html">Previous</a></p>
-        <p><a href="register4.html">Next</a></p>
+        <p><br/><a href="register2.php">Previous</a></p>
+        <p><a href="register4.php">Next</a></p>
     </body>
     
 </html>
