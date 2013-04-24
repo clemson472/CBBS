@@ -33,7 +33,7 @@ if(isset($_POST['import'])) {
 	mysqli_select_db($database, $dbname) or die('Could not select database');
 	
 	
-	if ($_FILES["file"]["error"] > 0) {
+	if ($_FILES["doc"]["error"] > 0) {
 		echo "Error: " . $_FILES["file"]["error"] . "<br>";
   	}
 	else {
