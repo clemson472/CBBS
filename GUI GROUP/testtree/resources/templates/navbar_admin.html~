@@ -47,19 +47,14 @@
 						</li>
 						<li><a href="admin/upload.php">UPLOAD</a>
 						</li>
-<!--						
 						<li><a href="admin/surveys.php">SURVEYS</a>
 						</li>
--->
-
-<!--
 						<li><a href="#">INVITE</a>
-							<ul>
+							<ul><!-- begin 1st level -->
 							    <li><a href="admin/invitementor.php">MENTOR</a></li>
 							    <li><a href="admin/invitementee.php">MENTEE</a></li>
-							</ul>
+							</ul><!-- end 1st level -->
 						</li>
--->
 						
                     </ul>
                     
@@ -71,7 +66,7 @@
                     </form>
 -->                    
                     <div id="container">
-<!--
+                        <!-- Login Starts Here -->
                         <div id="loginContainer">
                             <a href="#" id="loginButton"><span>Login</span><em></em></a>
                             <div style="clear:both"></div>
@@ -93,8 +88,6 @@
                               	</form>
                           </div>
                       </div>
--->                                            
-                      
                 </nav>
                 
 
