@@ -34,13 +34,14 @@ if(isset($_POST['import'])) {
 	
 	$filename = $_FILES['doc'];
 	echo $filename;
-	//importDatabase($database, );
+	//importDatabase($database, $filename);
 	}
 
 
 ?>
 
-<form action="admin/importexport.php" method="post" name="importForm">
+<form action="admin/importexport.php" method="post" enctype="multipart/form-data" name="importForm">
+	<input type="hidden" name="MAX_FILE_SIZE" value="15000000">
 	<input name="doc" type="file" id="doc" size="50">
 	<input name="import" type="submit" id="import" value="Import Database">
 </form>
