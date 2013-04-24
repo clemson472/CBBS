@@ -64,7 +64,7 @@ if(isset($_POST['upload'])) {
 
 
 // change username to be based on login credentials
-	$TARGET_PATH = "/".$name;
+	$TARGET_PATH = "../../uploads/".$name;
 	$USER_NAME = "cyrus";
 	
 	if (file_exists($TARGET_PATH)) {
@@ -89,7 +89,7 @@ if(isset($_POST['upload'])) {
 	// A common cause of file moving failures is because of bad permissions on the directory attempting to be written to
 	// Make sure you chmod the directory to be writeable
 		$_SESSION['error'] = "Could not upload file.  Check read/write persmissions on the directory";
-		echo "Could not upload file.  Check read/write persmissions on the directory";
+		echo "Could not upload file.  Check read/write permissions on the directory";
 	    	echo "<br>".$TARGET_PATH;
 		
 	//header("Location: index.html");
