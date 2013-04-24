@@ -8,7 +8,32 @@
 <?php include("../resources/templates/banner_log.html"); ?>
 <?php include("../resources/templates/navbar_admin.html"); ?>
 
-"import / export"
+<?php 
+include("../../../Database/includes.php");
+$host="oss-ci.cs.clemson.edu";
+$user="cpsc472";
+$password="myDB4dmin";
+$dbname="cpsc472";
+
+if(isset($_POST['export'])) {
+	$database = mysql_connect($host, $user, $password)
+   or die('Could not connect: ' . mysql_error());
+	mysql_select_db($dbname) or die('Could not select database');
+	
+	$tablesToExport = Array("Mentor", "Mentee");
+	$fileNameToExport = "thefile.csv";
+	
+	exportTablesToExcel($database, $tablesToExport, $fileNameToExport);
+	echo "EXPORTED THAT BITCH!";
+	}
+
+
+
+?>
+
+<form action="admin/importexport.php" method="post" name="exportForm">
+	<input name="export" type="submit" id="export" value="Export Database">
+</form>
 
 </body>
 
