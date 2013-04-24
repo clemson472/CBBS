@@ -1,0 +1,4 @@
+AuthType  shibboleth
+ShibRequireSession On
+require user jegrant 
+
