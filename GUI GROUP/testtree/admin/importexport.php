@@ -24,7 +24,7 @@ if(isset($_POST['export'])) {
 	$fileNameToExport = "thefile.csv";
 	
 	exportTablesToExcel($database, $tablesToExport, $fileNameToExport);
-	echo "EXPORTED THAT BITCH!";
+	echo "EXPORTED";
 	}
 
 if(isset($_POST['import'])) {
@@ -32,9 +32,20 @@ if(isset($_POST['import'])) {
    or die('Could not connect to mysql');
 	mysqli_select_db($database, $dbname) or die('Could not select database');
 	
-	$filename = $_FILES['doc']['name'];
-	echo $filename;
-	//importDatabase($database, $filename);
+	
+	if ($_FILES["file"]["error"] > 0) {
+		echo "Error: " . $_FILES["file"]["error"] . "<br>";
+  	}
+	else {
+		$filepath = $_FILES['doc']['tmp_name'];
+  		echo "Upload: " . $_FILES["doc"]["name"] . "<br>";
+  		echo "Type: " . $_FILES["doc"]["type"] . "<br>";
+  		echo "Size: " . ($_FILES["doc"]["size"] / 1024) . " kB<br>";
+  		echo "Stored in: " . $_FILES["doc"]["tmp_name"];
+  		importDatabase($database, $filepath);
+  	}	
+	
+	
 	}
 
 
