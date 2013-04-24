@@ -18,7 +18,7 @@ $dbname="cpsc472";
 if(isset($_POST['export'])) {
 	$database = mysqli_connect($host, $user, $password)
    or die('Could not connect to mysql');
-	mysqli_select_db($dbname) or die('Could not select database');
+	mysqli_select_db($database, $dbname) or die('Could not select database');
 	
 	$tablesToExport = Array("Mentor", "Mentee");
 	$fileNameToExport = "thefile.csv";
