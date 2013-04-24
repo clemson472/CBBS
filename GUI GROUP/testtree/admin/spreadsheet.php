@@ -9,7 +9,7 @@
 <?php include("../resources/templates/banner_log.html"); ?>
 <?php include("../resources/templates/navbar_admin.html"); ?>
 
-"spreadsheet"
+View Database as Spreadsheet
 <?php include("../resources/scripts/php/tableview.php"); ?>
 </body>
 
