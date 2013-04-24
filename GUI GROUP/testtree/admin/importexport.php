@@ -27,9 +27,23 @@ if(isset($_POST['export'])) {
 	echo "EXPORTED THAT BITCH!";
 	}
 
+if(isset($_POST['import'])) {
+	$database = mysqli_connect($host, $user, $password)
+   or die('Could not connect to mysql');
+	mysqli_select_db($database, $dbname) or die('Could not select database');
+	
+	$filename = $_FILES['doc'];
+	echo $filename;
+	//importDatabase($database, $filename);
+	}
 
 
 ?>
+
+<form action="admin/importexport.php" method="post" name="importForm">
+	<input name="doc" type="file" id="doc" size="50">
+	<input name="import" type="submit" id="import" value="Import Database">
+</form>
 
 <form action="admin/importexport.php" method="post" name="exportForm">
 	<input name="export" type="submit" id="export" value="Export Database">
